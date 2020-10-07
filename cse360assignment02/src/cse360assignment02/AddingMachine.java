@@ -3,15 +3,16 @@ package cse360assignment02;
 /**
  * This class is a simple adding machine that will add, subtract, and track the history of the total value
  */
-
 public class AddingMachine {
 	private int total;
+	private String history;		// this is to show what values were being added and subtracted
 	
 	/**
-	 * A constructor that will instantiate any Adding Machine object. Sets total to 0.
+	 * A constructor that will instantiate any Adding Machine object. Sets total and history to 0.
 	 */
 	public AddingMachine() {
 		total = 0;	// not needed - included for clarity
+		history = "0";
 	}
 	
 	/**
@@ -19,7 +20,7 @@ public class AddingMachine {
 	 * @return total value
 	 */
 	public int getTotal() {
-		return 0;
+		return total;
 	}
 	
 	/**
@@ -27,7 +28,8 @@ public class AddingMachine {
 	 * @param value added to total
 	 */
 	public void add(int value) {
-		
+		total = total + value;
+		history = history + " + " + value;		// prints out history plus value
 	}
 	
 	/**
@@ -35,21 +37,35 @@ public class AddingMachine {
 	 * @param value subtracted from total
 	 */
 	public void subtract(int value) {
-		
+		total = total - value;
+		history = history + " - " + value;		// prints out history minus value
 	}
 	
 	/**
-	 * @return string
+	 * Prints history of the transactions. History starts at the initial 0 value and ends at the last input.
+	 * @return a history of the transactions string
 	 */
 	public String toString() {
-		return "";
+		return history;
 	}
 	
 	/**
-	 * Empties everything
+	 * Empties out the "memory" of the program by having the total value be set back to 0 as well as having the history be set back to "0"
 	 */
 	public void clear() {
-		
+		total = 0;
+		history = "0";
 	}
 	
+	public static void main(String[] args) {
+		AddingMachine myCalculator = new AddingMachine();
+		
+		// Does 0 + 4 - 2 + 5 calculation
+		myCalculator.add (4);
+		myCalculator.subtract (2);
+		myCalculator.add(5);
+		
+		System.out.println(myCalculator.toString());	// Prints out 0 + 4 - 2 + 5
+		System.out.println(myCalculator.getTotal());	// Prints the total
+	}
 }
