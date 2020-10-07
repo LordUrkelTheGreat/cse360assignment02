@@ -56,16 +56,4 @@ public class AddingMachine {
 		total = 0;
 		history = "0";
 	}
-	
-	public static void main(String[] args) {
-		AddingMachine myCalculator = new AddingMachine();
-		
-		// Does 0 + 4 - 2 + 5 calculation
-		myCalculator.add (4);
-		myCalculator.subtract (2);
-		myCalculator.add(5);
-		
-		System.out.println(myCalculator.toString());	// Prints out 0 + 4 - 2 + 5
-		System.out.println(myCalculator.getTotal());	// Prints the total
-	}
 }
